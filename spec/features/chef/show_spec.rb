@@ -8,13 +8,20 @@ RSpec.describe "chef#show page" do
     DishIngredient.create!(dish: @dish_1, ingredient: @ingredient_1)
   end
 
+
+  it 'shows the chef name' do
+    visit "/chefs/#{@chef_1.id}"
+    
+    expect(page).to have_content("Logan")
+  end
+
   it 'has a link to the ingredients the chef uses' do
     visit "/chefs/#{@chef_1.id}"
 
     expect(page).to have_content("Ingredients")
   end
 
-  xit 'clicks link' do
+  it 'clicks link' do
     visit "/chefs/#{@chef_1.id}"
     
     click_link "Ingredients"
