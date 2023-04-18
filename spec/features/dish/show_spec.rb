@@ -28,7 +28,13 @@ RSpec.describe "dish show page" do
     
     fill_in 'ingredient_id', with: "#{@ingredient_2.id}"
     click_button 'Add Ingredient' 
-    save_and_open_page
+
     expect(page).to have_content("#{@ingredient_2.name}")
+  end
+
+  it 'has chef name' do
+    visit "/dishes/#{@dish_1.id}"
+    
+    expect(page).to have_content("Logan")
   end
 end
