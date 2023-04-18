@@ -19,4 +19,8 @@ RSpec.describe Dish, type: :model do
   it 'totals calories' do
     expect(@dish_1.total_calories).to eq(100)
   end
+
+  it 'gives chef name' do
+    expect(@dish_1.chef_name).to eq("Logan")
+  end
 end
