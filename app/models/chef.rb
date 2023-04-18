@@ -4,6 +4,6 @@ class Chef < ApplicationRecord
   has_many :ingredients, through: :dishes
 
   def ingredient_names
-    ingredients.pluck(:name)
+    ingredients.distinct.pluck(:name)
   end
 end
